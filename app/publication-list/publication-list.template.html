@@ -1,0 +1,33 @@
+<h1>Publicações</h1>
+<div class="row">
+	
+	<div style="border: 1px solid red;" class="col-md-3">
+		<div style="border: 1px solid red;">Recomendações</div>
+		<div style="border: 1px solid red;">Filtros</div>
+	</div>
+	
+	<div style="border: 1px solid red;" class="col-md-9">
+		<table class="table">
+			<tr>
+				<th>Título</th>
+				<th>Autor/es</th>
+				<th>Tipo</th>
+				<th>Status</th>
+				<th>Ano</th>
+				<th>Edição</th>
+				<th>Local</th>
+				<th>Ações</th>
+			</tr>
+			<tr ng-repeat="publi in $ctrl.publications">
+			    <td>{{ publi.titulo }}</td>
+			    <td>{{ publi.autor }}</td>
+			    <td>{{ publi.tipo }}</td>
+			    <td>{{ publi.status }}</td>
+			    <td>{{ publi.ano }}</td>
+			    <td>{{ publi.edicao }}</td>
+			    <td>{{ publi.local }}</td>
+			    <td>{{ publi.acoes }}</td>
+		  </tr>
+		</table>
+	</div>
+</div>
