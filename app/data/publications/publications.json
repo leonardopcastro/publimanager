@@ -1,5 +1,6 @@
 [
 	{
+		"id": 1,
 		"autor": "teste",
 		"titulo": "titulo",
 		"tipo": "tipo",
@@ -9,6 +10,7 @@
 		"local": "local"
 	},
 	{
+		"id": 2,
 		"autor": "teste",
 		"titulo": "titulo",
 		"tipo": "tipo",
@@ -17,6 +19,7 @@
 		"edicao": "edicao",
 		"local": "local"
 	},{
+		"id": 3,
 		"autor": "teste",
 		"titulo": "titulo",
 		"tipo": "tipo",
@@ -25,6 +28,7 @@
 		"edicao": "edicao",
 		"local": "local"
 	},{
+		"id": 4,
 		"autor": "teste",
 		"titulo": "titulo",
 		"tipo": "tipo",
@@ -33,6 +37,7 @@
 		"edicao": "edicao",
 		"local": "local"
 	},{
+		"id": 5,
 		"autor": "teste",
 		"titulo": "titulo",
 		"tipo": "tipo",
@@ -41,6 +46,7 @@
 		"edicao": "edicao",
 		"local": "local"
 	},{
+		"id": 6,
 		"autor": "teste",
 		"titulo": "titulo",
 		"tipo": "tipo",
@@ -49,6 +55,7 @@
 		"edicao": "edicao",
 		"local": "local"
 	},{
+		"id": 7,
 		"autor": "teste",
 		"titulo": "titulo",
 		"tipo": "tipo",
@@ -57,6 +64,7 @@
 		"edicao": "edicao",
 		"local": "local"
 	},{
+		"id": 8,
 		"autor": "teste",
 		"titulo": "titulo",
 		"tipo": "tipo",
@@ -65,6 +73,7 @@
 		"edicao": "edicao",
 		"local": "local"
 	},{
+		"id": 9,
 		"autor": "teste",
 		"titulo": "titulo",
 		"tipo": "tipo",
@@ -73,46 +82,7 @@
 		"edicao": "edicao",
 		"local": "local"
 	},{
-		"autor": "teste",
-		"titulo": "titulo",
-		"tipo": "tipo",
-		"status": "status",
-		"ano": "ano",
-		"edicao": "edicao",
-		"local": "local"
-	},{
-		"autor": "teste",
-		"titulo": "titulo",
-		"tipo": "tipo",
-		"status": "status",
-		"ano": "ano",
-		"edicao": "edicao",
-		"local": "local"
-	},{
-		"autor": "teste",
-		"titulo": "titulo",
-		"tipo": "tipo",
-		"status": "status",
-		"ano": "ano",
-		"edicao": "edicao",
-		"local": "local"
-	},{
-		"autor": "teste",
-		"titulo": "titulo",
-		"tipo": "tipo",
-		"status": "status",
-		"ano": "ano",
-		"edicao": "edicao",
-		"local": "local"
-	},{
-		"autor": "teste",
-		"titulo": "titulo",
-		"tipo": "tipo",
-		"status": "status",
-		"ano": "ano",
-		"edicao": "edicao",
-		"local": "local"
-	},{
+		"id": 10,
 		"autor": "teste",
 		"titulo": "titulo",
 		"tipo": "tipo",

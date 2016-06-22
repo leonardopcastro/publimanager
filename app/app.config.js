@@ -7,12 +7,21 @@ angular.
   			$locationProvider.hashPrefix('!');
 
   			$routeProvider.
-  			when('/authors', {
-          		template: '<author-list></author-list>'
+          when('/publications/edit/:publicationId',{
+            controller: 'publicationCtrl',
+            templateUrl: '/components/publication/edit.html'
+          }).
+          when('/authors', {
+              controller: 'authorCtrl',
+          		templateUrl: '/components/author/index.html'
         	}).
         	when('/users', {
-          		template: '<user-list></user-list>'
+              controller: 'userCtrl',
+          		templateUrl: '/components/user/index.html'
         	}).
-        	otherwise({template: '<publication-list></publication-list>'});
+        	otherwise({
+            controller: 'publicationCtrl',
+            templateUrl: '/components/publication/index.html'
+          });
 		}
 	]);

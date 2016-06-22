@@ -4,7 +4,7 @@ angular.
   module('core.publication').
   factory('Publication', ['$resource',
     function($resource) {
-      return $resource('publications/:publicationId.json', {}, {
+      return $resource('data/publications/:publicationId.json', {}, {
         query: {
           method: 'GET',
           params: {publicationId: 'publications'},

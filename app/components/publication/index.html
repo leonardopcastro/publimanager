@@ -18,7 +18,7 @@
 				<th>Local</th>
 				<th>Ações</th>
 			</tr>
-			<tr ng-repeat="publi in $ctrl.publications">
+			<tr ng-repeat="publi in publications">
 			    <td>{{ publi.titulo }}</td>
 			    <td>{{ publi.autor }}</td>
 			    <td>{{ publi.tipo }}</td>
@@ -26,7 +26,10 @@
 			    <td>{{ publi.ano }}</td>
 			    <td>{{ publi.edicao }}</td>
 			    <td>{{ publi.local }}</td>
-			    <td>{{ publi.acoes }}</td>
+			    <td><button type="button" class="btn btn-xs btn-default" aria-label="Editar" title="Editar" go-click="/publications/edit/{{publi.id}}">
+  						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+					</button>
+				</td>
 		  </tr>
 		</table>
 	</div>

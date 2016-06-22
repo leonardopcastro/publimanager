@@ -5,8 +5,8 @@ angular.module('publiManager', [
 	'ngRoute',
   	'ui.bootstrap',
   	'ngAnimate',
-  	'publicationList',
-  	'authorList',
-  	'userList'
+  	'publicationModule',
+  	'authorModule',
+  	'userModule'
   	]
 );
