@@ -1,0 +1,56 @@
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-8">
+            <label for="title">Título</label>
+            <input ng-model="publication.titulo" class="form-control" type="text" id="title" placeholder="Título">
+        </div>
+        <div class="col-md-4">
+            <label for="type">Tipo</label>
+            <select ng-model="publication.tipo" class="form-control" id="type"  ng-options="pub_type as pub_type.name for pub_type in publication_types">
+            </select>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-4">
+            <label for="status">Status</label>
+            <select ng-model="publication.status" class="form-control" id="status"  ng-options="pub_status as pub_status.name for pub_status in publication_statuses"></select>
+        </div>
+        <div class="col-md-4">
+            <label for="ano">Ano</label>
+            <input ng-model="publication.ano" class="form-control" type="number" id="ano"  max="{{ano_max_value}}" ng-maxlength="4">
+        </div>
+        <div class="col-md-4">
+            <label for="alcance">Alcance</label>
+            <select ng-model="publication.alcance" class="form-control" id="alcance"  ng-options="pub_reach as pub_reach.name for pub_reach in publication_reaches"></select>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-4">
+            <label for="edicao">Edição</label>
+            <input ng-model="publication.edicao" class="form-control" type="text" id="edicao">
+        </div>
+        <div class="col-md-4">
+            <label for="editora">Editora</label>
+            <input ng-model="publication.editora" class="form-control" type="text" id="editora">
+        </div>
+        <div class="col-md-4">
+            <label for="local">Local</label>
+            <input ng-model="publication.local" class="form-control" type="text" id="local">
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-8">
+            <label for="link_arquivo">Link Arquivo</label>
+            <input ng-model="publication.link_arquivo" class="form-control" type="text" id="link_arquivo">
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
+<button type="submit" class="btn btn-success btn-lg pull-right">Salvar</button>

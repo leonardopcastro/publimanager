@@ -2,35 +2,78 @@
 <div class="row">
 	
 	<div style="border: 1px solid red;" class="col-md-3">
-		<div style="border: 1px solid red;">Recomendações</div>
-		<div style="border: 1px solid red;">Filtros</div>
+		<div style="border: 1px solid red;">
+			<h4>Filtros</h4>
+			<div class="form-group"> 
+				<label for="filtro_geral">Geral</label> 
+				<input type="text" class="form-control" id="filtro_geral" ng-model="$scope.query_list"> 
+			</div>
+		</div>
+		<div>
+			<h4>Recomendações</h4>
+			<div style="max-height: 200px; overflow:auto" publication-recomendation></div>
+		</div>
 	</div>
-	
 	<div style="border: 1px solid red;" class="col-md-9">
-		<table class="table">
-			<tr>
-				<th>Título</th>
-				<th>Autor/es</th>
-				<th>Tipo</th>
-				<th>Status</th>
-				<th>Ano</th>
-				<th>Edição</th>
-				<th>Local</th>
-				<th>Ações</th>
-			</tr>
-			<tr ng-repeat="publi in publications">
-			    <td>{{ publi.titulo }}</td>
-			    <td>{{ publi.autor }}</td>
-			    <td>{{ publi.tipo }}</td>
-			    <td>{{ publi.status }}</td>
-			    <td>{{ publi.ano }}</td>
-			    <td>{{ publi.edicao }}</td>
-			    <td>{{ publi.local }}</td>
-			    <td><button type="button" class="btn btn-xs btn-default" aria-label="Editar" title="Editar" go-click="/publications/edit/{{publi.id}}">
-  						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-					</button>
-				</td>
-		  </tr>
-		</table>
+		<div class="panel panel-default">
+	  		<div class="panel-heading text-right">
+	  			<button type="button" class="btn btn-primary" go-click="/publications/add">Adicionar</button>
+  			</div>
+
+			<table class="table">
+				<tr>
+					<th role="button" ng-click="sortBy('titulo')">
+						Título 
+						<publication-order-icon column-name="titulo"></publication-order-icon>
+					</th>
+					<th role="button" ng-click="sortBy('autor')">
+						Autores 
+						<publication-order-icon column-name="autor"></publication-order-icon>
+					</th>
+					<th role="button" ng-click="sortBy('tipo')">
+						Tipo
+						<publication-order-icon column-name="tipo"></publication-order-icon>
+					</th>
+					<th role="button" ng-click="sortBy('status')">
+						Status
+						<publication-order-icon column-name="status"></publication-order-icon>
+					</th>
+					<th role="button" ng-click="sortBy('ano')">
+						Ano
+						<publication-order-icon column-name="ano"></publication-order-icon>
+					</th>
+					<th role="button" ng-click="sortBy('edicao')">
+						Edição
+						<publication-order-icon column-name="edicao"></publication-order-icon>
+					</th>
+					<th role="button" ng-click="sortBy('local')">
+						Local
+						<publication-order-icon column-name="local"></publication-order-icon>
+					</th>
+					<th role="button">
+						Ações
+					</th>
+				</tr>
+				<tr ng-repeat="publi in publications | filter:$scope.query_list | orderBy:publication_sort_property:sort_reverse">
+				    <td>{{ publi.titulo }}</td>
+				    <td>{{ publi.autor }}</td>
+				    <td>{{ publi.tipo }}</td>
+				    <td>{{ publi.status }}</td>
+				    <td>{{ publi.ano }}</td>
+				    <td>{{ publi.edicao }}</td>
+				    <td>{{ publi.local }}</td>
+				    <td><button type="button" class="btn btn-xs btn-default" aria-label="Editar" title="Editar" go-click="/publications/edit/{{publi.id}}">
+	  						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+						</button>
+						<button type="button" class="btn btn-xs btn-default" aria-label="Exportar" title="Exportar">
+	  						<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+						</button>
+						<button type="button" class="btn btn-xs btn-default" aria-label="Apagar" title="Apagar" ng-click="delete(publi);">
+	  						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						</button>
+					</td>
+			  	</tr>
+			</table>
+		</div>
 	</div>
 </div>

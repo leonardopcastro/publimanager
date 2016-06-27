@@ -8,8 +8,14 @@ angular.
 
   			$routeProvider.
           when('/publications/edit/:publicationId',{
-            controller: 'publicationCtrl',
-            templateUrl: '/components/publication/edit.html'
+            controller: 'publicationEdit',
+            templateUrl: '/components/publication/edit.html',
+            method: 'edit'
+          }).
+          when('/publications/add',{
+            controller: 'publicationAdd',
+            templateUrl: '/components/publication/add.html',
+            method: 'edit'
           }).
           when('/authors', {
               controller: 'authorCtrl',
@@ -20,7 +26,7 @@ angular.
           		templateUrl: '/components/user/index.html'
         	}).
         	otherwise({
-            controller: 'publicationCtrl',
+            controller: 'publicationList',
             templateUrl: '/components/publication/index.html'
           });
 		}

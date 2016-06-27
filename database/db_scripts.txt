@@ -1,0 +1,28 @@
+CREATE TABLE publication(
+   id INTEGER PRIMARY 	KEY     NOT NULL,
+   titulo         	VARCHAR(255) NOT NULL,
+   tipo            	VARCHAR(255) NOT NULL,
+   status        	CHAR(50),
+   ano				VARCHAR(4),
+   alcance			VARCHAR(20),
+   edicao			VARCHAR(50),
+   local			VARCHAR(70),
+   editora			VARCHAR(70),
+   link_arquivo		VARCHAR(255)
+);
+
+CREATE TABLE author(
+   id INT PRIMARY 	KEY     NOT NULL,
+   nome        		VARCHAR(30) NOT NULL,
+   sobrenome		VARCHAR(100) NOT NULL,
+   nome_publicacao	VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE publication_author(
+   id INT PRIMARY 	KEY     NOT NULL,
+   publication_id	INT NOT NULL,
+   author_id		INT NOT NULL
+);
+
+INSERT INTO publication (titulo, tipo, status, ano, alcance, edicao, local, editora, link_arquivo)  
+VALUES ('Titulo', 'Tipo', 'Status', '2016', 'Alcance', 'Edição', 'Local', 'Editora', 'Link_arquivo'), ('Titulo2', 'Tipo2', 'Status2', '2016', 'Alcance2', 'Edição2', 'Local2', 'Editora2', 'Link_arquivo2');
