@@ -5,7 +5,7 @@ angular.
   factory('Publication', ['$resource', '$filter',
     function($resource, $filter) {
         var Publication =  $resource('rest/publication.php?id=:publicationId', {}, {
-            query: {
+            _query: {
                 method: 'GET',
                 isArray: true
             },
@@ -13,6 +13,21 @@ angular.
                 method: 'PUT'
             }
         });
+
+        Publication.query = function(){
+            return Publication._query(function(publications){
+                var i = 0;
+
+                for(i=0; i<publications.length; i++){
+                    publications[i] = Publication.getPublicationForForm(publications[i]);
+                    publications[i].tipo = publications[i].tipo.name;
+                    publications[i].status = publications[i].status.name;
+                    publications[i].alcance = publications[i].alcance.name;
+                }
+
+                return publications;
+            });
+        }
 
         Publication.typeOptions = [
             {id: '1', name: 'Publicação em Periódico'},

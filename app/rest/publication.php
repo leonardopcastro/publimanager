@@ -106,8 +106,8 @@ function update($id, $data){
 	$sql_set = array();
 
 	foreach($data as $column=>$value){
-		$params_to_bind[] = new SqlParamsToBind(":{$field}", $value);
-		$sql_set[] = "$field = :{$field}";
+		$params_to_bind[] = new SqlParamsToBind(":{$column}", $value);
+		$sql_set[] = "$column = :{$column}";
 	}
 
 	$params_to_bind[] = new SqlParamsToBind(":id", $id);

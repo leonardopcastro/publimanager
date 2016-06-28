@@ -3,6 +3,8 @@
 	<button class='btn btn-primary pull-right' go-click="/">Voltar</button> 
 </h1>
 
+<publication-message watch="{{msg_alerta}}"></publication-message>
+
 <form ng-submit="update()">
 	<div ng-include="'components/publication/form.html'"></div>
 </form>

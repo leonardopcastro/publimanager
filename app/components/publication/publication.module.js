@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('publicationModule', ['core.publication', 'core.redirect']);
+angular.module('publicationModule', ['core.publication', 'core.redirect', 'core.alertMessage']);
