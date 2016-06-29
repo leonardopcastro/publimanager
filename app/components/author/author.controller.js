@@ -1,8 +1,11 @@
 'use strict';
 
-// Register `author-list` component, along with its associated controller and template
-angular.
-  module('authorModule').
-    controller('authorCtrl', function($scope){
+var authorModule = angular.module('authorModule');
+    
+authorModule.controller('authorList', ['$scope', 'Author', function($scope, Author){
+	$scope.authors = Author.query();
+}]);
 
-    });
+authorModule.controller('authorAdd', ['$scope', function($scope){
+	
+}]);

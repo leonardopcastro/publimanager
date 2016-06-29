@@ -12,14 +12,17 @@ CREATE TABLE publication(
 );
 
 CREATE TABLE author(
-   id INT PRIMARY 	KEY     NOT NULL,
+   id INTEGER PRIMARY 	KEY     NOT NULL,
    nome        		VARCHAR(30) NOT NULL,
    sobrenome		VARCHAR(100) NOT NULL,
-   nome_publicacao	VARCHAR(100) NOT NULL
+   nome_publicacao	VARCHAR(100) NOT NULL,
+   email   VARCHAR(100)
 );
+INSERT INTO author (nome, sobrenome, nome_publicacao, email) VALUES ('Nome', 'Sobrenome', 'Sobrenome, N.', 'nome@nome.com.br'), ('Teste1', 'Teste1', 'Teste, T.', 'Teste1@Teste1.com.br')
+
 
 CREATE TABLE publication_author(
-   id INT PRIMARY 	KEY     NOT NULL,
+   id INTEGER PRIMARY 	KEY     NOT NULL,
    publication_id	INT NOT NULL,
    author_id		INT NOT NULL
 );

@@ -23,6 +23,10 @@ publicationModule.controller('publicationList', function($scope, $location, Publ
 		});
 	}
 
+	$scope.export = function(){
+		alert('Em desenvolvimento!');
+	}
+
 	$scope.sortBy = function(publication_sort_property) {
 	    $scope.sort_reverse = ($scope.publication_sort_property === publication_sort_property) ? !$scope.sort_reverse : false;
 	    $scope.publication_sort_property = publication_sort_property;

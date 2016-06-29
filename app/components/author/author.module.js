@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('authorModule', []);
+angular.module('authorModule', ['core.author']);

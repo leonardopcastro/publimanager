@@ -9,18 +9,21 @@ angular.
   			$routeProvider.
           when('/publications/edit/:publicationId',{
             controller: 'publicationEdit',
-            templateUrl: '/components/publication/edit.html',
-            method: 'edit'
+            templateUrl: '/components/publication/edit.html'
           }).
           when('/publications/add',{
             controller: 'publicationAdd',
-            templateUrl: '/components/publication/add.html',
-            method: 'edit'
+            templateUrl: '/components/publication/add.html'
           }).
           when('/authors', {
-              controller: 'authorCtrl',
+              controller: 'authorList',
           		templateUrl: '/components/author/index.html'
         	}).
+          when('/authors/add', {
+              controller: 'authorAdd',
+              templateUrl: '/components/author/add.html'
+
+          }).
         	when('/users', {
               controller: 'userCtrl',
           		templateUrl: '/components/user/index.html'
