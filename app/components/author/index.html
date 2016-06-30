@@ -1,41 +1,54 @@
 <h1>Autores</h1>
 <div class="row">
 
-	<div class="panel panel-default">
-		<div class="panel-heading text-right">
-	  			<button type="button" class="btn btn-primary" go-click="/authors/add">Adicionar</button>
-  			</div>
-
-			<table class="table">
-				<tr>
-					<th>
-						Nome 
-					</th>
-					<th>
-						Sobrenome 
-					</th>
-					<th>
-						Nome em Publicação
-					</th>
-					<th>
-						E-mail
-					</th>
-				</tr>
-				<tr ng-repeat="aut in authors">
-				    <td>{{ aut.nome }}</td>
-				    <td>{{ aut.sobrenome }}</td>
-				    <td>{{ aut.nome_publicacao }}</td>
-				    <td>{{ aut.email }}</td>
-				    <td><button type="button" class="btn btn-xs btn-default" aria-label="Editar" title="Editar" go-click="/authors/edit/{{aut.id}}">
-	  						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-						</button>
-						<button type="button" class="btn btn-xs btn-default" aria-label="Apagar" title="Apagar" ng-click="delete(aut);">
-	  						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-						</button>
-					</td>
-			  	</tr>
-			</table>
+	<div style="border: 1px solid red;" class="col-md-3">
+		<div style="border: 1px solid red;">
+			<h4>Filtros</h4>
+			<div class="form-group"> 
+				<label for="filtro_geral">Geral</label> 
+				<input type="text" class="form-control" id="filtro_geral" ng-model="$scope.query_list"> 
+			</div>
 		</div>
-	</div>	
-	
+	</div>
+	<div style="border: 1px solid red;" class="col-md-9">
+
+		<publication-message watch="{{msg_alerta}}"></publication-message>
+
+		<div class="panel panel-default">
+			<div class="panel-heading text-right">
+		  			<button type="button" class="btn btn-primary" go-click="/authors/add">Adicionar</button>
+	  			</div>
+
+				<table class="table">
+					<tr>
+						<th>
+							Nome 
+						</th>
+						<th>
+							Sobrenome 
+						</th>
+						<th>
+							Nome em Publicação
+						</th>
+						<th>
+							E-mail
+						</th>
+					</tr>
+					<tr ng-repeat="aut in authors | filter:$scope.query_list">
+					    <td>{{ aut.nome }}</td>
+					    <td>{{ aut.sobrenome }}</td>
+					    <td>{{ aut.nome_publicacao }}</td>
+					    <td>{{ aut.email }}</td>
+					    <td><button type="button" class="btn btn-xs btn-default" aria-label="Editar" title="Editar" go-click="/authors/edit/{{aut.id}}">
+		  						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							</button>
+							<button type="button" class="btn btn-xs btn-default" aria-label="Apagar" title="Apagar" ng-click="delete(aut);">
+		  						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+							</button>
+						</td>
+				  	</tr>
+				</table>
+			</div>
+		</div>	
+	</div>
 </div>

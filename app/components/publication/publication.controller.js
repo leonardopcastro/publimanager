@@ -115,21 +115,3 @@ publicationModule
 		link: link
 	};
 })
-.directive('publicationMessage', function(){
-
-	function link(scope, element, attrs){
-		attrs.$observe(scope.watch, function(new_val){
-			if (new_val != undefined){
-				scope.msg = new_val;
-			}
-		});
-	}
-
-	return {
-		scope: {
-			msg: '@watch'
-		},
-		link: link,
-		template: '<div class="alert alert-success" role="alert" ng-if="msg != \'\'">{{msg}}</div>'
-	};
-});

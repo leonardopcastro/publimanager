@@ -24,6 +24,11 @@ angular.
               templateUrl: '/components/author/add.html'
 
           }).
+          when('/authors/edit/:authorId', {
+              controller: 'authorEdit',
+              templateUrl: '/components/author/edit.html'
+
+          }).
         	when('/users', {
               controller: 'userCtrl',
           		templateUrl: '/components/user/index.html'

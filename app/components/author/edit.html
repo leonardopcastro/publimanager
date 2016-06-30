@@ -1,0 +1,10 @@
+<h1> 
+	<span>Editar Autor</span>
+	<button class='btn btn-primary pull-right' go-click="/authors">Voltar</button> 
+</h1>
+
+<publication-message watch="{{msg_alerta}}"></publication-message>
+
+<form ng-submit="update()">
+	<div ng-include="'components/author/form.html'"></div>
+</form>

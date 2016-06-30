@@ -1,1 +1,26 @@
-form
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="title">Nome</label>
+            <input ng-model="author.nome" class="form-control" type="text" id="nome" placeholder="Nome">
+        </div>
+        <div class="col-md-6">
+            <label for="type">Sobrenome</label>
+            <input ng-model="author.sobrenome" class="form-control" type="text" id="sobrenome" placeholder="Sobrenome">
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="status">Nome Publicação</label>
+            <input ng-model="author.nome_publicacao" class="form-control" type="text" id="nome_publicacao" placeholder="Nome Publicacao">
+        </div>
+        <div class="col-md-6">
+            <label for="ano">E-mail</label>
+            <input ng-model="author.email" class="form-control" type="email" id="email" placeholder="E-mail">
+        </div>
+    </div>
+</div>
+
+<button type="submit" class="btn btn-success btn-lg pull-right">Salvar</button>
