@@ -45,12 +45,20 @@
 </div>
 <div class="form-group">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
+            <label for="autores">Autores</label>
+            <button class="btn btn-success btn-xs" type="button" onClick="alert('Em desenvolvimento!\n\nUtilize o menu no topo.');">Cadastrar</button>
+            <select multiple ng-model="publication.autores" class="form-control" id="autores" ng-options="pub_author as (pub_author.nome+' '+pub_author.sobrenome+' / '+pub_author.nome_publicacao) for pub_author in autores track by pub_author.id"></select>
+        </div>
+        <div class="col-md-6">
             <label for="link_arquivo">Link Arquivo</label>
             <input ng-model="publication.link_arquivo" class="form-control" type="text" id="link_arquivo">
         </div>
-        <div class="col-md-4">
-        </div>
     </div>
 </div>
-<button type="submit" class="btn btn-success btn-lg pull-right">Salvar</button>
+
+<div class="form-group">
+    <div class="row">
+        <button type="submit" class="btn btn-success btn-lg pull-right">Salvar</button>
+    </div>
+</div>

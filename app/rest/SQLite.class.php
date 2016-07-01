@@ -12,7 +12,7 @@ class SQLite extends SQLite3{
    
 	function queryExtended($sql, $sql_params_to_bind){
 		
-		$Statement = $this->prepare($sql);
+		$Statement = $this->prepare(trim($sql));
 
 		if (!empty($sql_params_to_bind)){
 			foreach($sql_params_to_bind as $bind){
@@ -23,8 +23,8 @@ class SQLite extends SQLite3{
 		$Result = $Statement->execute();
 
 		$sql_operation = array();
-		
-		preg_match('/^([a-z]+)\s/i', $sql, $sql_operation);
+
+		preg_match('/^[\s\t]*([a-z]+)\s/i', $sql, $sql_operation);
 
 		$sql_operation = strtoupper($sql_operation[1]);
 

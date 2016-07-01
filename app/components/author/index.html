@@ -1,8 +1,8 @@
 <h1>Autores</h1>
 <div class="row">
 
-	<div style="border: 1px solid red;" class="col-md-3">
-		<div style="border: 1px solid red;">
+	<div class="col-md-3">
+		<div>
 			<h4>Filtros</h4>
 			<div class="form-group"> 
 				<label for="filtro_geral">Geral</label> 
@@ -10,12 +10,31 @@
 			</div>
 		</div>
 	</div>
-	<div style="border: 1px solid red;" class="col-md-9">
+	<div class="col-md-9">
 
 		<publication-message watch="{{msg_alerta}}"></publication-message>
 
 		<div class="panel panel-default">
 			<div class="panel-heading text-right">
+				<div class="btn-group" uib-dropdown is-open="status.isopen">
+			      	<button id="single-button" type="button" class="btn btn-info" uib-dropdown-toggle ng-disabled="disabled" style="color:white">
+		        		Legenda <span class="caret"></span>
+			      	</button>
+					<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+						<li role="menuitem">
+							<a href="#">
+								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
+								Editar
+							</a>
+						</li>
+						<li role="menuitem">
+							<a href="#">
+								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
+								Apagar
+							</a>
+						</li>
+					</ul>
+			    </div>
 		  			<button type="button" class="btn btn-primary" go-click="/authors/add">Adicionar</button>
 	  			</div>
 

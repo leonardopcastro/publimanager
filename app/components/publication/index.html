@@ -1,29 +1,62 @@
 <h1>Publicações</h1>
 <div class="row">
 	
-	<div style="border: 1px solid red;" class="col-md-3">
-		<div style="border: 1px solid red;">
-			<h4>Filtros</h4>
-			<div class="form-group"> 
-				<label for="filtro_geral">Geral</label> 
-				<input type="text" class="form-control" id="filtro_geral" ng-model="$scope.query_list"> 
+	<div class="col-md-3">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h4>Filtros</h4>
+				<div class="form-group"> 
+					<label for="filtro_geral">Geral</label> 
+					<input type="text" class="form-control" id="filtro_geral" ng-model="query_all_list"> 
+					<label for="filtro_titulo">Título</label> 
+					<input type="text" class="form-control" id="filtro_titulo" ng-model="query_list.titulo"> 
+					<label for="filtro_autores">Autores</label> 
+					<input type="text" class="form-control" id="filtro_autores" ng-model="filtro_autor"> 
+					<label for="filtro_ano">Ano</label> 
+					<input type="text" class="form-control" id="filtro_ano" ng-model="query_list.ano"> 
+				</div>
+			</div>
+			<div class="panel-body">
+				<h4>Recomendadas</h4>
+				<div style="max-height: 200px; overflow:auto" publication-recomendation></div>
 			</div>
 		</div>
-		<div>
-			<h4>Recomendadas</h4>
-			<div style="max-height: 200px; overflow:auto" publication-recomendation></div>
-		</div>
 	</div>
-	<div style="border: 1px solid red;" class="col-md-9">
-
-		<publication-message watch="{{msg_alerta}}"></publication-message>
+	<div class="col-md-9">
 		
+		<publication-message watch="{{msg_alerta}}"></publication-message>
+
 		<div class="panel panel-default">
 	  		<div class="panel-heading text-right">
+				<div class="btn-group" uib-dropdown is-open="status.isopen">
+			      	<button id="single-button" type="button" class="btn btn-info" uib-dropdown-toggle ng-disabled="disabled" style="color:white">
+		        		Legenda <span class="caret"></span>
+			      	</button>
+					<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+						<li role="menuitem">
+							<a href="#">
+								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
+								Editar
+							</a>
+						</li>
+						<li role="menuitem">
+							<a href="#">
+								<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> 
+								Exportar
+							</a>
+						</li>
+						<li role="menuitem">
+							<a href="#">
+								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
+								Apagar
+							</a>
+						</li>
+					</ul>
+			    </div>
 	  			<button type="button" class="btn btn-primary" go-click="/publications/add">Adicionar</button>
   			</div>
 
-			<table class="table">
+			<table class="table table-hover table-condensed">
 				<tr>
 					<th role="button" ng-click="sortBy('titulo')">
 						Título 
@@ -57,9 +90,9 @@
 						Ações
 					</th>
 				</tr>
-				<tr ng-repeat="publi in publications | filter:$scope.query_list | orderBy:publication_sort_property:sort_reverse">
+				<tr ng-repeat="publi in publications | filter:query_list | filter:query_all_list | arrayFilter:filtro_autor:'autores' | orderBy:publication_sort_property:sort_reverse">
 				    <td>{{ publi.titulo }}</td>
-				    <td>{{ publi.autor }}</td>
+				    <td>{{ publi.nomes_autores }}</td>
 				    <td>{{ publi.tipo }}</td>
 				    <td>{{ publi.status }}</td>
 				    <td>{{ publi.ano }}</td>

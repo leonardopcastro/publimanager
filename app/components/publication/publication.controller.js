@@ -35,7 +35,7 @@ publicationModule.controller('publicationList', function($scope, $location, Publ
 
 
 
-publicationModule.controller('publicationEdit', function($scope, $routeParams, Publication){
+publicationModule.controller('publicationEdit', function($scope, $routeParams, Publication, Author){
 
 	$scope.publication_types = Publication.typeOptions;
 	$scope.publication_statuses = Publication.statusOptions;
@@ -44,15 +44,18 @@ publicationModule.controller('publicationEdit', function($scope, $routeParams, P
 	var date_now = new Date();
 	$scope.ano_max_value = date_now.getFullYear();
 	
-	Publication.get({publicationId: $routeParams.publicationId}, function(publication) {
+	Author.query(function(authors){
+		$scope.autores = authors;
+	});
 
+	Publication.get({publicationId: $routeParams.publicationId}, function(publication) {
 		$scope.publication = Publication.getPublicationForForm(publication);
 	});
 
 	$scope.update = function(){
-		$scope.publication = Publication.getPublicationForSave($scope.publication);
+		var publication_for_save = Publication.getPublicationForSave($scope.publication);
 		
-		$scope.publication.$update({publicationId: $routeParams.publicationId},function(publication){
+		publication_for_save.$update({publicationId: $routeParams.publicationId},function(publication){
 			$scope.publication = Publication.getPublicationForForm(publication);
 			$scope.msg_alerta = 'Publicação salva com sucesso!';
 		});
@@ -60,12 +63,16 @@ publicationModule.controller('publicationEdit', function($scope, $routeParams, P
 });
 
 
-publicationModule.controller('publicationAdd', function($scope, $location, Publication, AlertMessage){
+publicationModule.controller('publicationAdd', function($scope, $location, Publication, AlertMessage, Author){
+
+	Author.query(function(authors){
+		$scope.autores_publicacao = authors;
+	});
 
 	$scope.publication_types = Publication.typeOptions;
 	$scope.publication_statuses = Publication.statusOptions;
 	$scope.publication_reaches = Publication.alcanceOptions;
-
+	
 	var date_now = new Date();
 	$scope.ano_max_value = date_now.getFullYear();
 
@@ -73,17 +80,44 @@ publicationModule.controller('publicationAdd', function($scope, $location, Publi
 
 	$scope.publication.ano = $scope.ano_max_value;
 			
+	Author.query(function(authors){
+		$scope.autores = authors;
+	});
+
 	$scope.create = function(){
+
 		$scope.publication = Publication.getPublicationForSave($scope.publication);
 
 		$scope.publication.$save(function(publication){
-			$scope.publication = Publication.getPublicationForForm(publication);
 			AlertMessage.setMessage('Publicação salva com sucesso!');
 			$location.path('');
 		});
 	}
 });
 
+
+
+
+publicationModule
+.filter('arrayFilter', function($filter) {
+  	return function(array_to_filter, filter_value, property_to_filter) {
+
+  		if (filter_value == undefined || filter_value == ''){
+  			return array_to_filter;
+  		}
+		
+		var array_filtered = [];
+		
+		array_to_filter.forEach(function(array_element, array_index){
+			
+			if ($filter('filter')(array_element[property_to_filter], filter_value).length > 0){
+				array_filtered.push(array_element);
+			}
+		});
+
+		return array_filtered;
+  	};
+});
 
 
 

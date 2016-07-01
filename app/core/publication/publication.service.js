@@ -17,12 +17,29 @@ angular.
         Publication.query = function(){
             return Publication._query(function(publications){
                 var i = 0;
-
+                var j;
+                var qtd_autores_da_publicacao = 0;
+                
                 for(i=0; i<publications.length; i++){
                     publications[i] = Publication.getPublicationForForm(publications[i]);
                     publications[i].tipo = publications[i].tipo.name;
                     publications[i].status = publications[i].status.name;
                     publications[i].alcance = publications[i].alcance.name;
+
+                    qtd_autores_da_publicacao = publications[i].autores.length;
+                    
+                    if (qtd_autores_da_publicacao){
+                        publications[i].nomes_autores = [];
+
+                        publications[i].autores.forEach(function(autor, indice, autores){
+                            publications[i].nomes_autores.push(autor.nome_publicacao);
+                        });
+
+                        publications[i].nomes_autores = publications[i].nomes_autores.join('; ');
+                    }
+                    else{
+                        publications[i].nomes_autores = '';
+                    }
                 }
 
                 return publications;
