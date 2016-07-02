@@ -43,8 +43,7 @@ authorModule.controller('authorEdit', ['$scope', '$routeParams', '$location', 'A
 
 	$scope.update = function(){
 		$scope.author.$update({authorId: $routeParams.authorId}, function(){
-			AlertMessage.setMessage('Autor salvo com sucesso!');
-			$location.path('/authors');
+			$scope.msg_alerta = 'Publicação salva com sucesso!';
 		});
 	}
 }]);

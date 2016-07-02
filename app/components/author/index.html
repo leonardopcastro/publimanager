@@ -1,16 +1,26 @@
 <h1>Autores</h1>
 <div class="row">
 
-	<div class="col-md-3">
-		<div>
-			<h4>Filtros</h4>
-			<div class="form-group"> 
-				<label for="filtro_geral">Geral</label> 
-				<input type="text" class="form-control" id="filtro_geral" ng-model="$scope.query_list"> 
+	<div class="col-md-2">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h4>Busca</h4>
+				<div class="form-group"> 
+					<label for="filtro_geral">Geral</label> 
+					<input type="text" class="form-control" id="filtro_geral" ng-model="query_all_list"> 
+					<label for="filtro_nome">Nome</label> 
+					<input type="text" class="form-control" id="filtro_nome" ng-model="query_item_list.nome"> 
+					<label for="filtro_sobrenome">Sobrenome</label> 
+					<input type="text" class="form-control" id="filtro_sobrenome" ng-model="query_item_list.sobrenome"> 
+					<label for="filtro_nome_publicacao">Nome Publicação</label> 
+					<input type="text" class="form-control" id="filtro_nome_publicacao" ng-model="query_item_list.nome_publicacao"> 
+					<label for="filtro_email">E-mail</label> 
+					<input type="text" class="form-control" id="filtro_email" ng-model="query_item_list.email"> 
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="col-md-9">
+	<div class="col-md-10">
 
 		<publication-message watch="{{msg_alerta}}"></publication-message>
 
@@ -53,7 +63,7 @@
 							E-mail
 						</th>
 					</tr>
-					<tr ng-repeat="aut in authors | filter:$scope.query_list">
+					<tr ng-repeat="aut in authors | filter:query_all_list | filter:query_item_list | orderBy: aut.nome:-1">
 					    <td>{{ aut.nome }}</td>
 					    <td>{{ aut.sobrenome }}</td>
 					    <td>{{ aut.nome_publicacao }}</td>

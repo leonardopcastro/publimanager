@@ -11,6 +11,20 @@ var publiManagerModule = angular.module('publiManager', [
   	]
 );
 
+publiManagerModule.controller('HomeCtrl', ['$scope', function($scope){
+	
+	$scope.usuario_logado = false;
+
+	$scope.login = function(){
+		$scope.usuario_logado = true;
+	}
+
+	$scope.logout = function(){
+		$scope.usuario_logado = false;
+		$scope.home.nome_usuario = '';
+	}
+}]);
+
 publiManagerModule.directive('publicationMessage', function(){
 
 	function link(scope, element, attrs){

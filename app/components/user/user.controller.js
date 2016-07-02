@@ -1,7 +1,13 @@
 'use strict';
 
-angular.
-  module('userModule').
-    controller('userCtrl', function($scope){
+var userModule = angular.module('userModule');
+ 
 
-    });
+userModule.controller('userList', function($scope){
+
+});
+
+
+userModule.controller('userEdit', function($scope){
+
+});

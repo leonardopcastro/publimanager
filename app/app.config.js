@@ -30,9 +30,13 @@ angular.
 
           }).
         	when('/users', {
-              controller: 'userCtrl',
+              controller: 'userList',
           		templateUrl: '/components/user/index.html'
         	}).
+          when('/users/edit/:userId', {
+              controller: 'userEdit',
+              templateUrl: '/components/user/edit.html'
+          }).
         	otherwise({
             controller: 'publicationList',
             templateUrl: '/components/publication/index.html'
